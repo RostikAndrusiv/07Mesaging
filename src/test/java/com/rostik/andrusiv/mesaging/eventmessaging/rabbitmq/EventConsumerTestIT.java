@@ -2,18 +2,11 @@ package com.rostik.andrusiv.mesaging.eventmessaging.rabbitmq;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
-import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerITtestBase;
-import com.rostik.andrusiv.mesaging.repository.EventRepository;
-import com.rostik.andrusiv.mesaging.servicedto.entity.EventDto;
-import com.rostik.andrusiv.mesaging.servicedto.entity.EventEntity;
+import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.*;
@@ -22,20 +15,14 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
-
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @DirtiesContext
 @ActiveProfiles("rabbit")
 @Testcontainers
 @TestPropertySource(locations = {"classpath:application.properties"})
-class EventConsumerTestIT extends ConsumerITtestBase {
+class EventConsumerTestIT extends ConsumerTestBase {
 
     private static final String LOGGER_NAME = "com.rostik.andrusiv.mesaging.eventmessaging.rabbitmq";
 

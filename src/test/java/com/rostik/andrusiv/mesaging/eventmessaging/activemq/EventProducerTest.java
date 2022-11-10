@@ -3,7 +3,6 @@ package com.rostik.andrusiv.mesaging.eventmessaging.activemq;
 import com.rostik.andrusiv.mesaging.repository.EventRepository;
 import com.rostik.andrusiv.mesaging.servicedto.entity.EventDto;
 import com.rostik.andrusiv.mesaging.servicedto.entity.EventEntity;
-import org.apache.activemq.command.ActiveMQQueue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +33,7 @@ class EventProducerTest {
 
     @InjectMocks
     @Autowired
-    private EventProducer subject;
+    private EventProducer eventProducer;
 
     @Mock
     private JmsTemplate jmsTemplateMock;
@@ -63,7 +62,7 @@ class EventProducerTest {
     @Test
     void createEventTest() {
         when(repository.save(any())).thenReturn(Mockito.mock(EventEntity.class));
-        assertThatCode(() -> subject.createEvent(Mockito.mock(EventDto.class))).doesNotThrowAnyException();
+        assertThatCode(() -> eventProducer.createEvent(Mockito.mock(EventDto.class))).doesNotThrowAnyException();
         Mockito.verify(jmsTemplateMock)
                 .convertAndSend(eq(createEventQueue), any(EventDto.class));
         Mockito.verify(repository, times(1)).save(any(EventEntity.class));
@@ -73,7 +72,7 @@ class EventProducerTest {
     void updateEventTest() {
         when(repository.findById(any())).thenReturn(Optional.of(Mockito.mock(EventEntity.class)));
         when(repository.save(any())).thenReturn(Mockito.mock(EventEntity.class));
-        assertThatCode(() -> subject.updateEvent(Mockito.mock(EventDto.class))).doesNotThrowAnyException();
+        assertThatCode(() -> eventProducer.updateEvent(Mockito.mock(EventDto.class))).doesNotThrowAnyException();
         Mockito.verify(jmsTemplateMock)
                 .convertAndSend(eq(updateEventQueue), any(EventDto.class));
         Mockito.verify(repository, times(1)).save(any(EventEntity.class));
@@ -82,7 +81,7 @@ class EventProducerTest {
     @Test
     void deleteEventTest() {
         doNothing().when(repository).deleteById(anyLong());
-        assertThatCode(() -> subject.deleteEvent(anyLong())).doesNotThrowAnyException();
+        assertThatCode(() -> eventProducer.deleteEvent(anyLong())).doesNotThrowAnyException();
         Mockito.verify(jmsTemplateMock)
                 .convertAndSend(eq(deleteEventQueue), anyLong());
         Mockito.verify(repository, times(1)).deleteById(anyLong());

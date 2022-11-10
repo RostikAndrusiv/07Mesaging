@@ -2,22 +2,14 @@ package com.rostik.andrusiv.mesaging.eventmessaging.activemq;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
-import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerITtestBase;
-import com.rostik.andrusiv.mesaging.repository.EventRepository;
-import com.rostik.andrusiv.mesaging.servicedto.entity.EventDto;
-import com.rostik.andrusiv.mesaging.servicedto.entity.EventEntity;
+import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerTestBase;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.junit.ClassRule;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -28,27 +20,20 @@ import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.*;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.org.awaitility.Awaitility;
 import org.testcontainers.utility.DockerImageName;
 
 import javax.jms.ConnectionFactory;
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ActiveProfiles("activemq")
 @Testcontainers
 @TestPropertySource(locations = {"classpath:application.properties"})
 @DirtiesContext
-public class EventConsumerTestIT extends ConsumerITtestBase {
+public class EventConsumerTestIT extends ConsumerTestBase {
 
     private static final String LOGGER_NAME = "com.rostik.andrusiv.mesaging.eventmessaging.activemq";
 

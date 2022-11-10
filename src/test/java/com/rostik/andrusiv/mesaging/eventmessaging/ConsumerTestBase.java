@@ -33,7 +33,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
-public abstract class ConsumerITtestBase {
+public abstract class ConsumerTestBase {
 
     @Autowired
     protected EventMessaging eventProducer;

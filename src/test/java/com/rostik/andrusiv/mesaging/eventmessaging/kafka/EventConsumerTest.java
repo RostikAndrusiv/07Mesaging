@@ -3,7 +3,7 @@ package com.rostik.andrusiv.mesaging.eventmessaging.kafka;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import com.google.gson.Gson;
-import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerITtestBase;
+import com.rostik.andrusiv.mesaging.eventmessaging.ConsumerTestBase;
 import com.rostik.andrusiv.mesaging.servicedto.entity.EventDto;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest
 @TestPropertySource(locations = {"classpath:application.properties"})
 @ActiveProfiles("kafka")
-class EventConsumerTest extends ConsumerITtestBase {
+class EventConsumerTest extends ConsumerTestBase {
 
     private static final String LOGGER_NAME = "com.rostik.andrusiv.mesaging.eventmessaging.kafka";
 
