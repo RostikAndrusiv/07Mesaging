@@ -2,14 +2,14 @@ package com.rostik.andrusiv.eventmessaging.kafka;
 
 import com.google.gson.Gson;
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.KafkaProfile;
 import com.rostik.andrusiv.eventserviceapi.EventMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("kafka")
+@KafkaProfile
 public class EventProducer implements EventMessaging {
 
     @Autowired

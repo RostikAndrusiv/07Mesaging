@@ -1,14 +1,14 @@
 package com.rostik.andrusiv.eventmessaging.rabbitmq;
 
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.RabbitMQProfile;
 import com.rostik.andrusiv.eventserviceapi.EventServiceConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("rabbit")
+@RabbitMQProfile
 @Slf4j
 public class EventConsumer implements EventServiceConsumer {
 

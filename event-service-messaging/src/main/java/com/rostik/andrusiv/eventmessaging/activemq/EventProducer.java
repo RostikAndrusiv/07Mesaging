@@ -1,16 +1,16 @@
 package com.rostik.andrusiv.eventmessaging.activemq;
 
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.ActiveMQProfile;
 import com.rostik.andrusiv.eventserviceapi.EventMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.jms.Queue;
 
 @Component
-@Profile("activemq")
+@ActiveMQProfile
 public class EventProducer implements EventMessaging {
 
     @Autowired

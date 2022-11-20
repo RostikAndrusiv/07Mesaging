@@ -1,16 +1,16 @@
 package com.rostik.andrusiv.eventmessaging.kafka;
 
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.KafkaProfile;
 import com.rostik.andrusiv.eventserviceapi.EventServiceConsumer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import static com.rostik.andrusiv.eventmessaging.kafka.KafkaTopicConfig.*;
 
 @Component
-@Profile("kafka")
+@KafkaProfile
 @Slf4j
 public class EventConsumer implements EventServiceConsumer {
 

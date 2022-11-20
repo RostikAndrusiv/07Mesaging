@@ -1,15 +1,15 @@
 package com.rostik.andrusiv.eventmessaging.rabbitmq;
 
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.RabbitMQProfile;
 import com.rostik.andrusiv.eventserviceapi.EventMessaging;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("rabbit")
+@RabbitMQProfile
 public class EventProducer implements EventMessaging {
 
     @Autowired

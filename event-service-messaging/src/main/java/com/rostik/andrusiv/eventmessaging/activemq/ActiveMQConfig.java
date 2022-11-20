@@ -1,10 +1,10 @@
 package com.rostik.andrusiv.eventmessaging.activemq;
 
+import com.rostik.andrusiv.eventmessaging.profile.ActiveMQProfile;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
@@ -16,7 +16,7 @@ import javax.jms.Queue;
 
 @Component
 @EnableJms
-@Profile("activemq")
+@ActiveMQProfile
 public class ActiveMQConfig {
 
     @Bean

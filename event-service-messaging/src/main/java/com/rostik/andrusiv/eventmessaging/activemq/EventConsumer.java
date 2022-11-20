@@ -1,14 +1,14 @@
 package com.rostik.andrusiv.eventmessaging.activemq;
 
 import com.rostik.andrusiv.entity.EventDto;
+import com.rostik.andrusiv.eventmessaging.profile.ActiveMQProfile;
 import com.rostik.andrusiv.eventserviceapi.EventServiceConsumer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("activemq")
+@ActiveMQProfile
 @Slf4j
 public class EventConsumer implements EventServiceConsumer {
 

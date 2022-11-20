@@ -1,13 +1,13 @@
 package com.rostik.andrusiv.eventmessaging.kafka;
 
+import com.rostik.andrusiv.eventmessaging.profile.KafkaProfile;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
-@Profile("kafka")
+@KafkaProfile
 class KafkaTopicConfig {
 
     public static final String CREATE_EVENT_TOPIC = "createEventTopic";
