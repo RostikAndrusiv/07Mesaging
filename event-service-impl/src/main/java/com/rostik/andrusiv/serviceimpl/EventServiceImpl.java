@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,8 +26,10 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventDto createEvent(EventDto eventDto) {
         EventEntity entity = eventRepository.save(EventMapper.INSTANCE.dtoToEventModel(eventDto));
-        eventMessaging.createEvent(eventDto);
         eventDto.setEventId(entity.getEventId());
+        if (null != eventMessaging){
+            eventMessaging.createEvent(eventDto);
+        }
         return eventDto;
     }
 
@@ -39,6 +40,8 @@ public class EventServiceImpl implements EventService {
             EventEntity persistedEvent = eventRepository.findById(eventDto.getEventId()).orElseThrow(() -> new RuntimeException("not found"));
             EventMapper.INSTANCE.updateCustomerFromDto(eventDto, persistedEvent);
             eventRepository.save(persistedEvent);
+        }
+        if (null != eventMessaging){
             eventMessaging.updateEvent(eventDto);
         }
         return eventDto;
@@ -49,7 +52,9 @@ public class EventServiceImpl implements EventService {
         EventEntity eventEntityToDelete = eventRepository.findById(id).orElseThrow(() -> new RuntimeException("not found"));
         EventDto deletedEventDto = EventMapper.INSTANCE.EventModelToDto(eventEntityToDelete);
         eventRepository.deleteById(id);
-        eventMessaging.deleteEvent(id);
+        if (null != eventMessaging){
+            eventMessaging.deleteEvent(id);
+        }
         return deletedEventDto;
     }
 
