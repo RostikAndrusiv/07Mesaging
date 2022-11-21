@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.MockitoAnnotations;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,6 +28,8 @@ import org.testcontainers.utility.DockerImageName;
 import javax.jms.ConnectionFactory;
 
 @ActiveProfiles("activemq")
+@EnableAutoConfiguration
+@SpringBootConfiguration
 //@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 class EventConsumerTestIT extends ConsumerTestBase {
 

@@ -23,8 +23,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
-@EnableAutoConfiguration
-@SpringBootConfiguration
 @Testcontainers
 @TestPropertySource(locations = {"classpath:application.properties"})
 public abstract class ConsumerTestBase {

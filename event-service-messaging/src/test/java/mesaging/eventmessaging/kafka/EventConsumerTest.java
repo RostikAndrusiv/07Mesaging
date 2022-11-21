@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -45,6 +46,7 @@ import java.util.concurrent.TimeUnit;
 @Import(EventConsumerTest.KafkaTestContainersConfiguration.class)
 @ActiveProfiles("kafka")
 @EnableAutoConfiguration
+@SpringBootConfiguration
 class EventConsumerTest extends ConsumerTestBase {
 
     private static final String LOGGER_NAME = "com.rostik.andrusiv.eventmessaging.kafka";

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +23,8 @@ import org.testcontainers.utility.DockerImageName;
 import static org.mockito.ArgumentMatchers.any;
 
 @ActiveProfiles("rabbit")
+@EnableAutoConfiguration
+@SpringBootConfiguration
 class EventConsumerTestIT extends ConsumerTestBase {
 
     private static final String LOGGER_NAME = "com.rostik.andrusiv.eventmessaging.rabbitmq";

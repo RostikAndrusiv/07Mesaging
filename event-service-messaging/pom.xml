@@ -79,5 +79,10 @@
             <artifactId>kafka</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.rostik.andrusiv</groupId>
+            <artifactId>event-service-repository</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
