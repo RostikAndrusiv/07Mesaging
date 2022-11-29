@@ -44,7 +44,7 @@ class EventConsumerTestIT extends ConsumerTestBase {
             new GenericContainer<>(DockerImageName.parse("rmohr/activemq:5.14.3")).withExposedPorts(61616);
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         super.beforeTest(logger);
     }
 

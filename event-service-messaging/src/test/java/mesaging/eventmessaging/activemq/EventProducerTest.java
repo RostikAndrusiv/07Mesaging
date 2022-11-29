@@ -13,6 +13,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.test.context.ActiveProfiles;
+
 import javax.jms.Queue;
 
 import static org.mockito.ArgumentMatchers.eq;

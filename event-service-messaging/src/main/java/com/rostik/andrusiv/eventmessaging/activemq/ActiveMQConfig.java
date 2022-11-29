@@ -1,6 +1,6 @@
 package com.rostik.andrusiv.eventmessaging.activemq;
 
-import com.rostik.andrusiv.eventmessaging.profile.ActiveMQProfile;
+import com.rostik.andrusiv.profile.ActiveMQProfile;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 
@@ -13,6 +13,8 @@ import org.springframework.jms.support.converter.MessageType;
 import org.springframework.stereotype.Component;
 
 import javax.jms.Queue;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 @EnableJms
@@ -21,22 +23,24 @@ public class ActiveMQConfig {
 
     @Bean
     public Queue createEventQueue() {
-        return new ActiveMQQueue("create-event-notification, create-event-request");
+        return new ActiveMQQueue("create-event-notification-queue, create-event-request-queue");
     }
 
     @Bean
     public Queue updateEventQueue() {
-        return new ActiveMQQueue("update-event-notification, update-event-request");
+        return new ActiveMQQueue("update-event-notification-queue, update-event-request-queue");
     }
 
     @Bean
     public Queue deleteEventQueue() {
-        return new ActiveMQQueue("delete-event-notification, delete-event-request");
+        return new ActiveMQQueue("delete-event-notification-queue, delete-event-request-queue");
     }
 
     @Bean
     public ActiveMQConnectionFactory activeMQConnectionFactory() {
-        return new ActiveMQConnectionFactory();
+        var factory = new ActiveMQConnectionFactory();
+        factory.setTrustedPackages(List.of("com.rostik.andrusiv"));
+        return factory;
     }
 
     @Bean

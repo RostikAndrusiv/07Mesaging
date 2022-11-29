@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>event-service-common</module>
         <module>event-service-dto</module>
         <module>event-service-repository</module>
         <module>event-service-api</module>
@@ -34,6 +35,7 @@
         <swagger.version>3.0.0</swagger.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <spring-context.version>5.3.23</spring-context.version>
     </properties>
 
     <dependencyManagement>
@@ -45,7 +47,12 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-context</artifactId>-->
+<!--                <version>${spring-context.version}</version>-->
+<!--                <scope>compile</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -243,6 +250,11 @@
             <dependency>
                 <groupId>com.rostik.andrusiv</groupId>
                 <artifactId>event-service-repository</artifactId>
+                <version>${modules.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rostik.andrusiv</groupId>
+                <artifactId>event-service-common</artifactId>
                 <version>${modules.version}</version>
             </dependency>
         </dependencies>

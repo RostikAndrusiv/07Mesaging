@@ -1,7 +1,7 @@
 package com.rostik.andrusiv.eventmessaging.activemq;
 
 import com.rostik.andrusiv.entity.EventDto;
-import com.rostik.andrusiv.eventmessaging.profile.ActiveMQProfile;
+import com.rostik.andrusiv.profile.ActiveMQProfile;
 import com.rostik.andrusiv.eventserviceapi.EventMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;

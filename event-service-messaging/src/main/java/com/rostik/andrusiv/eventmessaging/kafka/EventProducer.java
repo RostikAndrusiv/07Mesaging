@@ -2,7 +2,7 @@ package com.rostik.andrusiv.eventmessaging.kafka;
 
 import com.google.gson.Gson;
 import com.rostik.andrusiv.entity.EventDto;
-import com.rostik.andrusiv.eventmessaging.profile.KafkaProfile;
+import com.rostik.andrusiv.profile.KafkaProfile;
 import com.rostik.andrusiv.eventserviceapi.EventMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -29,6 +29,6 @@ public class EventProducer implements EventMessaging {
 
     @Override
     public void deleteEvent(Long id) {
-        kafkaTemplate.send("updateEventTopic", String.valueOf(id));
+        kafkaTemplate.send("deleteEventTopic", String.valueOf(id));
     }
 }

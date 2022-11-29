@@ -1,6 +1,6 @@
 package com.rostik.andrusiv.eventmessaging.rabbitmq;
 
-import com.rostik.andrusiv.eventmessaging.profile.RabbitMQProfile;
+import com.rostik.andrusiv.profile.RabbitMQProfile;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -10,23 +10,12 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static com.rostik.andrusiv.common.Constants.*;
+
 @Configuration
 @RabbitMQProfile
 @EnableRabbit
 public class RabbitMQConfig {
-
-    public static final String CREATE_EVENT_NOTIFICATION_QUEUE = "create-event-notification";
-    public static final String UPDATE_EVENT_NOTIFICATION_QUEUE = "update-event-notification";
-    public static final String DELETE_EVENT_NOTIFICATION_QUEUE = "delete-event-notification";
-    public static final String CREATE_EVENT_REQUEST_QUEUE = "create-event-request";
-    public static final String UPDATE_EVENT_REQUEST_QUEUE = "update-event-request";
-    public static final String DELETE_EVENT_REQUEST_QUEUE = "delete-event-request";
-
-    public static final String EXCHANGE = "message_exchange";
-
-    public static final String CREATE_EVENT_NOTIFICATION_ROUTING_KEY = "create.event.notification.routing.key";
-    public static final String UPDATE_EVENT_NOTIFICATION_ROUTING_KEY = "update.event.notification.routing.key";
-    public static final String DELETE_EVENT_NOTIFICATION_ROUTING_KEY = "delete.event.notification.routing.key";
 
     @Bean
     public Queue createNotificationQueue() {

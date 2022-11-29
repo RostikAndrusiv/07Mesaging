@@ -84,5 +84,9 @@
             <artifactId>event-service-repository</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.rostik.andrusiv</groupId>
+            <artifactId>event-service-common</artifactId>
+        </dependency>
     </dependencies>
 </project>

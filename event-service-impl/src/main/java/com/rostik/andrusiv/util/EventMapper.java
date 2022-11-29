@@ -13,7 +13,7 @@ import org.mapstruct.factory.Mappers;
 public interface EventMapper {
     EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 
-    EventDto EventModelToDto(EventEntity eventEntity);
+    EventDto eventModelToDto(EventEntity eventEntity);
 
     EventEntity dtoToEventModel(EventDto eventDto);
 

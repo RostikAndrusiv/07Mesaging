@@ -1,4 +1,4 @@
-package com.rostik.andrusiv.eventmessaging.profile;
+package com.rostik.andrusiv.profile;
 
 import org.springframework.context.annotation.Profile;
 
@@ -7,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Profile("rabbit")
+@Profile("kafka")
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface RabbitMQProfile {
+public @interface KafkaProfile {
 }

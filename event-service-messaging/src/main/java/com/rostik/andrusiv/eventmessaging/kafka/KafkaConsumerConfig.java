@@ -1,6 +1,6 @@
 package com.rostik.andrusiv.eventmessaging.kafka;
 
-import com.rostik.andrusiv.eventmessaging.profile.KafkaProfile;
+import com.rostik.andrusiv.profile.KafkaProfile;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;

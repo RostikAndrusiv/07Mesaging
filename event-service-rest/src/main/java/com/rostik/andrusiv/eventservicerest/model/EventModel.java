@@ -7,6 +7,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class EventModel extends RepresentationModel<EventModel> {
 
     public EventDto getEventDto() {

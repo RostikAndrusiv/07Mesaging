@@ -98,7 +98,6 @@ class EventConsumerTest extends ConsumerTestBase {
     }
 
     @Test
-    @Disabled //FIXME: deserialization failure :(((
     void updateEvent() throws InterruptedException {
         EventDto eventDto = createTestEventDto();
         template.send("updateEventTopic", gson.toJson(eventDto));
